@@ -1,0 +1,6 @@
+langgraph
+composio
+fastapi
+uvicorn[standard]
+rich
+python-dotenv
