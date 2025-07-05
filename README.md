@@ -2,47 +2,70 @@
 
 Sistema inteligente de respuesta automática de emails usando IA con memoria y supervisión humana.
 
-## Características
+## Configuración del Entorno
 
-- **Respuestas Inteligentes**: Usa tu perfil personal y contenido específico del mensaje
-- **Memoria de Conversaciones**: Recuerda información sobre remitentes usando IA
-- **Sin Duplicados**: No responde múltiples veces al mismo mensaje
-- **Supervisión Humana**: Muestra cada respuesta para aprobación antes de enviar
-- **Extracción IA**: Aprende automáticamente detalles clave usando inteligencia artificial
-
-## Instalación
-
+### 1. Instalar Dependencias
 ```bash
 pip install -r requirements.txt
 ```
 
-## Configuración
-
-Crear `.env.local` con:
+### 2. Configurar Variables de Entorno
+Crear archivo `.env.local` en la raíz del proyecto:
 ```env
 OPENAI_API_KEY=tu_clave_openai
 COMPOSIO_API_KEY=tu_clave_composio
 GMAIL_INTEGRATION_ID=tu_id_gmail
 ```
 
-## Uso
+## Ejecutar el Programa
 
+### Iniciar el Sistema
 ```bash
 python src/main.py
 ```
 
-### Comandos Disponibles
+## Procedimiento de Autenticación
 
-- `prompt <texto>` - Pregunta directa a la IA
-- `memory` - Ver estadísticas de memoria e información de remitentes
-- `profile` - Ver perfil de Gmail
-- `quit` - Salir
+1. **Conexión OAuth**: El sistema iniciará automáticamente el proceso de autenticación
+2. **Autorización del Browser**: Se abrirá una ventana del navegador para autorizar el acceso a Gmail
+3. **Completar OAuth**: Seguir las instrucciones en el navegador para autorizar la aplicación
+4. **Confirmación**: El sistema confirmará cuando la conexión esté activa
+5. **Listener Activo**: El programa comenzará a escuchar emails automáticamente
 
-### Configuración Avanzada
+## Funciones Accesibles
 
-El comportamiento se puede personalizar en `src/config/agent_config.py`:
+### Procesamiento Automático de Emails
+- **Detección**: Detecta automáticamente nuevos emails
+- **Extracción IA**: Extrae información del remitente usando inteligencia artificial
+- **Generación de Respuesta**: Crea respuestas personalizadas usando tu perfil
+- **Aprobación**: Muestra email original y respuesta propuesta para tu aprobación
+- **Envío**: Envía la respuesta solo después de tu confirmación
 
-- **Extracción IA**: Configuración del modelo y categorías de información
-- **Configuración de memoria**: Cuántos emails recordar por remitente
-- **Tono de respuesta**: Profesional, casual, etc.
-- **Información del usuario**: Nombre, rol, etc.
+### Comandos Interactivos
+
+**`prompt <texto>`**
+- Hacer preguntas directas a la IA
+- Ejemplo: `prompt ¿Cuál es el estado de mi sistema?`
+
+**`memory`**
+- Ver estadísticas de emails procesados
+- Mostrar información aprendida sobre remitentes
+- Revisar historial de conversaciones
+
+**`profile`**
+- Mostrar información de tu perfil de Gmail
+- Ver datos de la cuenta conectada
+
+**`quit`**
+- Salir del programa de forma segura
+
+## Configuración Personalizada
+
+Editar `src/config/agent_config.py` para personalizar:
+
+- **Modelo IA**: Cambiar modelo de OpenAI utilizado
+- **Temperatura**: Ajustar creatividad de las respuestas
+- **Tono**: Modificar el tono de las respuestas (profesional, casual, etc.)
+- **Información Personal**: Actualizar nombre, rol, y datos del usuario
+- **Categorías de Extracción**: Definir qué información extraer de los emails
+- **Memoria**: Configurar cuántos emails recordar por remitente
