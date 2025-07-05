@@ -1,75 +1,89 @@
 # AI Email Assistant
 
-Sistema inteligente de respuesta automática de emails usando IA con memoria y supervisión humana.
+An intelligent system for automatically responding to emails using AI, memory, and human supervision.
 
-## Configuración del Entorno
+## Environment Setup
 
-### 1. Instalar Dependencias
+### 1. Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Configurar Variables de Entorno
-Crear archivo `.env.local` en la raíz del proyecto:
+### 2. Set Environment Variables
+
+Create a `.env.local` file in the root of the project:
+
 ```env
-OPENAI_API_KEY=tu_clave_openai
-COMPOSIO_API_KEY=tu_clave_composio
-GMAIL_INTEGRATION_ID=tu_id_gmail
+OPENAI_API_KEY=your_openai_key
+COMPOSIO_API_KEY=your_composio_key
+GMAIL_INTEGRATION_ID=your_gmail_id
 ```
 
-## Ejecutar el Programa
+## Running the Program
 
-### Iniciar el Sistema
+### Start the System
+
 ```bash
 python src/main.py
 ```
 
-## Procedimiento de Autenticación
+## Authentication Procedure
 
-1. **Conexión OAuth**: El sistema iniciará automáticamente el proceso de autenticación
-2. **Autorización del Browser**: Se abrirá una ventana del navegador para autorizar el acceso a Gmail
-3. **Completar OAuth**: Seguir las instrucciones en el navegador para autorizar la aplicación
-4. **Confirmación**: El sistema confirmará cuando la conexión esté activa
-5. **Listener Activo**: El programa comenzará a escuchar emails automáticamente
+1. **OAuth Connection**: The system will automatically start the authentication process.
+2. **Browser Authorization**: A browser window will open to authorize Gmail access.
+3. **Complete OAuth**: Follow the instructions in the browser to authorize the application.
+4. **Confirmation**: The system will confirm when the connection is active.
+5. **Active Listener**: The program will begin listening for new emails automatically.
 
-## Funciones Accesibles
+## Available Features
 
-### Procesamiento Automático de Emails
-- **Detección**: Detecta automáticamente nuevos emails
-- **Extracción IA**: Extrae información del remitente usando inteligencia artificial
-- **Generación de Respuesta**: Crea respuestas personalizadas usando tu perfil
-- **Aprobación**: Muestra email original y respuesta propuesta para tu aprobación
-- **Envío**: Envía la respuesta solo después de tu confirmación
+### Automatic Email Processing
 
-### Comandos Interactivos
+* **Detection**: Automatically detects new incoming emails.
+* **AI Extraction**: Extracts sender information using artificial intelligence.
+* **Response Generation**: Creates personalized replies based on your profile.
+* **Approval**: Displays the original email and the proposed reply for your review.
+* **Sending**: Sends the reply only after your confirmation.
+
+### Interactive Commands
 
 **`help`**
-- Mostrar ayuda con todos los comandos disponibles
-- Lista completa de funciones y ejemplos
 
-**`prompt <texto>`**
-- Hacer preguntas directas a la IA
-- Ejemplo: `prompt ¿Cuál es el estado de mi sistema?`
+* Show help with all available commands.
+* Full list of features and examples.
+
+**`prompt <text>`**
+
+* Ask the AI direct questions.
+* Example: `prompt What is the status of my system?`
 
 **`memory`**
-- Ver estadísticas de emails procesados
-- Mostrar información aprendida sobre remitentes
-- Revisar historial de conversaciones
+
+* View statistics of processed emails.
+* Display learned information about senders.
+* Review conversation history.
 
 **`profile`**
-- Mostrar información de tu perfil de Gmail
-- Ver datos de la cuenta conectada
+
+* Show information about your Gmail profile.
+* View connected account details.
 
 **`quit`**
-- Salir del programa de forma segura
 
-## Configuración Personalizada
+* Safely exit the program.
 
-Editar `src/config/agent_config.py` para personalizar:
+## Custom Configuration
 
-- **Modelo IA**: Cambiar modelo de OpenAI utilizado
-- **Temperatura**: Ajustar creatividad de las respuestas
-- **Tono**: Modificar el tono de las respuestas (profesional, casual, etc.)
-- **Información Personal**: Actualizar nombre, rol, y datos del usuario
-- **Categorías de Extracción**: Definir qué información extraer de los emails
-- **Memoria**: Configurar cuántos emails recordar por remitente
+Edit `src/config/agent_config.py` to customize:
+
+* **AI Model**: Change the OpenAI model used.
+* **Temperature**: Adjust the creativity of generated responses.
+* **Tone**: Modify the tone of the replies (professional, casual, etc.).
+* **Personal Information**: Update your name, role, and user details.
+* **Extraction Categories**: Define what information to extract from emails.
+* **Memory**: Configure how many emails to remember per sender.
+
+## Demo Video
+
+🎬 [Watch the demonstration on YouTube](https://youtu.be/oZtXOOnoNbQ)
