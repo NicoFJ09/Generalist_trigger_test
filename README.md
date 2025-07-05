@@ -8,6 +8,7 @@ Esta aplicación:
 - ✅ Autentica con Gmail usando OAuth2
 - ✅ Obtiene el perfil del usuario (email, total de mensajes, threads, etc.)
 - ✅ Muestra información básica del perfil
+- ✅ Escucha nuevos emails en tiempo real (opcional)
 - ✅ Maneja errores de autenticación robustamente
 
 ## Estructura del Proyecto
@@ -16,7 +17,8 @@ Esta aplicación:
 src/
 ├── main.py                    # Punto de entrada principal
 ├── mail/
-│   └── email_handler.py       # Manejador de email
+│   ├── email_handler.py       # Manejador de email
+│   └── email_listener.py      # Listener de emails nuevos
 └── config/
     └── settings.py            # Configuración y variables de entorno
 ```
@@ -62,17 +64,24 @@ python src/main.py
 2. **Autorización**: El usuario autoriza la aplicación en Gmail
 3. **Obtención del Perfil**: Usa `GMAIL_GET_PROFILE` para obtener información del usuario
 4. **Mostrar Resultados**: Muestra el perfil del usuario de forma limpia
+5. **Opción de Escucha**: Permite activar la escucha de nuevos emails en tiempo real
 
 ## Archivos Principales
 
 ### `main.py`
 - Punto de entrada principal de la aplicación
-- Maneja la inicialización y la presentación de resultados
+- Maneja la inicialización y presentación de resultados
+- Incluye opción interactiva para activar el listener
 
 ### `email_handler.py`
 - Clase `EmailHandler` que maneja la integración con Gmail
 - Autentica con OAuth2 y obtiene el perfil del usuario
-- Usa únicamente `GMAIL_GET_PROFILE`
+- Incluye método para habilitar triggers de Gmail
+
+### `email_listener.py`
+- Clase `EmailListener` que escucha nuevos emails
+- Maneja eventos de triggers de Gmail
+- Procesa emails entrantes de forma modular
 
 ### `settings.py`
 - Carga variables de entorno desde `.env.local`
@@ -82,9 +91,10 @@ python src/main.py
 
 - **OAuth2**: Autenticación segura con Gmail
 - **Composio Integration**: Usa Composio's toolset para la integración
+- **Email Listening**: Escucha emails en tiempo real usando triggers
 - **Manejo de Errores**: Captura y maneja errores de autenticación
 - **Apertura Automática del Navegador**: Facilita el flujo OAuth
-- **Salida Limpia**: Información del perfil presentada de forma clara
+- **Interfaz Interactiva**: Opción para activar/desactivar el listener
 
 ## Resolución de Problemas
 

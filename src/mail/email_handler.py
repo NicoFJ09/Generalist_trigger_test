@@ -146,3 +146,18 @@ class EmailHandler:
         print(f"🧵 Total Threads: {threads_total}")
         print(f"🔄 History ID: {history_id}")
         print("="*50)
+
+    def enable_trigger(self):
+        """Enable the Gmail trigger for new messages."""
+        try:
+            res = self.entity.enable_trigger(
+                app=App.GMAIL, 
+                trigger_name="GMAIL_NEW_GMAIL_MESSAGE", 
+                config={}
+            )
+            if res["status"] != "success":
+                raise Exception(f"Failed to enable trigger: {res['message']}")
+            print("✅ Email trigger enabled successfully")
+        except Exception as e:
+            print(f"❌ Error enabling trigger: {e}")
+            raise
