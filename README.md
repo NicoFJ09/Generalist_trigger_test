@@ -1,4 +1,4 @@
-# AI Email Agent
+# AI Email Assistant
 
 Sistema inteligente de respuesta automática de emails usando IA con memoria y supervisión humana.
 
@@ -42,6 +42,10 @@ python src/main.py
 - **Envío**: Envía la respuesta solo después de tu confirmación
 
 ### Comandos Interactivos
+
+**`help`**
+- Mostrar ayuda con todos los comandos disponibles
+- Lista completa de funciones y ejemplos
 
 **`prompt <texto>`**
 - Hacer preguntas directas a la IA
