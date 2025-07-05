@@ -1,6 +1,5 @@
-langgraph
-composio
-fastapi
-uvicorn[standard]
-rich
-python-dotenv
+composio-langgraph>=0.1.0
+langgraph>=0.1.0
+langchain-openai>=0.1.0
+python-dotenv>=1.0.0
+pydantic>=2.0.0
