@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Main entry point for the refactored AI Email Agent system.
 Clean, modular architecture with separation of concerns.

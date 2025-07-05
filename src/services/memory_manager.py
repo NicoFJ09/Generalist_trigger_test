@@ -72,33 +72,6 @@ class MemoryManager:
         """Remove thread from processed list (for error handling)."""
         self.processed_threads.discard(thread_id)
     
-    def validate_sender_info(self, sender: str):
-        """Validate and clean sender info to ensure it's in the correct format."""
-        if sender not in self.sender_info:
-            self.sender_info[sender] = {}
-            return
-            
-        # Check if sender_info is a dictionary
-        if not isinstance(self.sender_info[sender], dict):
-            self.sender_info[sender] = {}
-            return
-            
-        # Check each value in the dictionary
-        cleaned_info = {}
-        for key, value in self.sender_info[sender].items():
-            if isinstance(value, (str, int, float)):
-                # Valid types
-                cleaned_info[key] = value
-            elif isinstance(value, (list, tuple)):
-                # Convert lists/tuples to strings
-                if value:
-                    cleaned_info[key] = str(value[0]) if len(value) > 0 else ""
-            else:
-                # Convert other types to string
-                cleaned_info[key] = str(value)
-        
-        self.sender_info[sender] = cleaned_info
-    
     def get_memory_stats(self) -> Dict[str, Any]:
         """Get memory statistics for display."""
         stats: Dict[str, Any] = {

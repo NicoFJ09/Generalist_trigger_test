@@ -2,7 +2,6 @@
 Email manager for coordinating email operations.
 """
 
-import sys
 from typing import Optional
 from services.email_processor import EmailProcessor
 from services.memory_manager import MemoryManager

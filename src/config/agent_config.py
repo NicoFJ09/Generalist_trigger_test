@@ -83,6 +83,27 @@ MEMORY_CONFIG = {
             "expertise",      # Skills or areas of expertise
             "goal"           # What they want to achieve or their objective
         ],
+        "simple_extraction_prompt": """
+Extract key information from this email. Return a simple list of key-value pairs.
+Only extract information that is clearly mentioned. 
+
+Examples:
+- If they say "My name is John", extract: name: John
+- If they say "I'm 25 years old", extract: age: 25  
+- If they say "I work at Google", extract: company: Google
+
+Email: {email_text}
+
+Extract information in this format - one per line:
+name: [if mentioned]
+age: [if mentioned]
+company: [if mentioned]
+location: [if mentioned]
+job_title: [if mentioned]
+interest: [if mentioned]
+
+Only include lines for information that is actually mentioned in the email.
+""",
         "extraction_prompt": """
 Extract key information about the sender from this email. Return ONLY a valid JSON object with the information that is explicitly mentioned in the email. Do not infer or assume anything.
 

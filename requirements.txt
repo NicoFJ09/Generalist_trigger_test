@@ -19,11 +19,6 @@ pydantic-settings>=2.0.0
 
 # UI and console
 rich>=13.0.0
-click>=8.0.0
-
-# Utilities
-requests>=2.31.0
-httpx>=0.25.0
 
 # Type hints
 typing-extensions>=4.0.0

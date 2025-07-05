@@ -115,13 +115,7 @@ class EmailHandler:
         except Exception as e:
             print(f"❌ Error fetching user profile: {e}")
             raise
-
-    def get_user_email(self) -> Optional[str]:
-        """Return the authenticated user's email address."""
-        if self.user_profile:
-            return self.user_profile.get('emailAddress')
-        return None
-
+        
     def get_user_profile(self) -> Optional[Dict[str, Any]]:
         """Return the complete user profile information."""
         return self.user_profile

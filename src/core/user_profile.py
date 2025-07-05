@@ -65,7 +65,3 @@ class UserProfile:
         """Display user profile using email handler."""
         if hasattr(self.email_handler, 'display_profile'):
             self.email_handler.display_profile()
-    
-    def update_profile(self, profile_data: Dict[str, Any]):
-        """Update user profile."""
-        self._user_profile = profile_data
