@@ -1,5 +1,5 @@
 """
-Email Listener using Composio's toolset for Gmail trigger handling.
+Email Listener using Composio's toolset for Gmail trigger handling with AI Agent integration.
 """
 
 import os
@@ -12,12 +12,13 @@ from mail.email_handler import EmailHandler
 
 class EmailListener:
     """
-    Handles email listening functionality for new Gmail messages.
+    Handles email listening functionality for new Gmail messages with AI processing.
     """
     TRIGGER_NAME = "GMAIL_NEW_GMAIL_MESSAGE"
 
-    def __init__(self, email_handler: EmailHandler):
+    def __init__(self, email_handler: EmailHandler, ai_agent=None):
         self.email_handler = email_handler
+        self.ai_agent = ai_agent
         self.listener = self.email_handler.toolset.create_trigger_listener()
 
     def setup_listener(self):
@@ -28,7 +29,6 @@ class EmailListener:
             }
         )
         def handle_trigger(event):
-            print("📧 New email received...")
             payload = event.payload
 
             # Extract email information from payload
@@ -36,19 +36,15 @@ class EmailListener:
             email_text = payload.get("message_text", "")
             thread_id = payload.get("thread_id", "")
 
-            print(f"From: {sender}")
-            print(f"Thread ID: {thread_id}")
-            print(f"Preview: {email_text}")
-
-            # Process the email
-            self.process_email(sender, email_text, thread_id)
+            # Process the email with AI if agent is available
+            if self.ai_agent:
+                self.ai_agent.process_incoming_email(sender, email_text, thread_id)
+            else:
+                self.process_email(sender, email_text, thread_id)
 
     def process_email(self, sender: str, email_text: str, thread_id: str):
-        """Process incoming email."""
-        print(f"📨 Processing email from: {sender}")
-        print(f"📝 Content preview: {email_text[:150]}...")
-        print(f"🧵 Thread ID: {thread_id}")
-        print("✅ Email processed successfully")
+        """Basic email processing without AI."""
+        print(f"📨 Processed email from: {sender}")
         print("-" * 50)
 
     def start_listening(self):

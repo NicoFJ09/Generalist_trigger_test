@@ -161,3 +161,22 @@ class EmailHandler:
         except Exception as e:
             print(f"❌ Error enabling trigger: {e}")
             raise
+
+    def reply_to_thread(self, recipient_email: str, message_text: str, thread_id: str):
+        """Reply to a Gmail thread."""
+        try:
+            action = Action.GMAIL_REPLY_TO_THREAD
+            response = self.toolset.execute_action(
+                action=action,
+                entity_id=self.user_id,
+                params={
+                    "recipient_email": recipient_email,
+                    "message_body": message_text,
+                    "thread_id": thread_id,
+                },
+            )
+            return True
+            
+        except Exception as e:
+            print(f"❌ Error replying to thread: {e}")
+            return False

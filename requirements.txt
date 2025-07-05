@@ -1,5 +1,29 @@
+# Core LangGraph and LangChain dependencies
+langgraph>=0.2.0
+langchain>=0.3.0
+langchain-openai>=0.2.0
+langchain-community>=0.3.0
+langchain-core>=0.3.0
+
+# Composio MCP integration
 composio-langgraph>=0.1.0
-langgraph>=0.1.0
-langchain-openai>=0.1.0
+composio-core>=0.1.0
+
+# OpenAI API
+openai>=1.0.0
+
+# Environment and configuration
 python-dotenv>=1.0.0
 pydantic>=2.0.0
+pydantic-settings>=2.0.0
+
+# UI and console
+rich>=13.0.0
+click>=8.0.0
+
+# Utilities
+requests>=2.31.0
+httpx>=0.25.0
+
+# Type hints
+typing-extensions>=4.0.0
